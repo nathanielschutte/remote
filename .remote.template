@@ -1,0 +1,10 @@
+host=
+port=
+user=
+key=
+local-path=
+remote-path=
+ignore-dot-files=0
+ignore-dot-dirs=0
+ignore-files=
+ignore-dirs=.remote

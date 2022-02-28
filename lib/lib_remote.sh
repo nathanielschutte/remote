@@ -38,7 +38,7 @@ function remoteConfig() {
 }
 
 # Lib functions print ("true") or stay quiet ("")
-function libPrint() {
+function libRemotePrint() {
     lib_config_print="$1"
 }
 
