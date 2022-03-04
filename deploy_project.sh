@@ -1,4 +1,6 @@
+
 # SCP recursive directory deploy - tracking
+
 deploy_r() {
 
     # load current file hashes - skip if -a (ALL) is set

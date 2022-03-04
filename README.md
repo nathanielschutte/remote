@@ -1,5 +1,5 @@
 # remote
- library of deploy and other remote functions
+ Library of deploy and other remote functions
 
 ## Function
 - configure project: maintain remote info and file mapping
@@ -12,7 +12,7 @@
 ### Initialize
 - Initialize current directory as a project (optionally use profile for remote info)
 ```
-remote init [ -p|--profile <profile-name> ]
+remote init
 ```
 ### Configure project
 - Add project remote deploy info
@@ -22,10 +22,10 @@ remote add <tag>
     -p|--port <port> 
     -u|--user <remote-user> 
     -i|--key <key-file> 
-    -l|--local-path <local-path> (defaults to .)
-    -r|--remote-path <remote-path>
+    -l|--local-path <local-path> (defaults to current dir)
+    -o|--remote-path <remote-path>
 
-remote add <tag> --profile <profile> -r <remote-path>
+remote add <tag> --profile <profile> [ -o <remote-path> ... ]
 
 remote add <tag> --copy <existing remote tag>
 ```
@@ -33,12 +33,17 @@ remote add <tag> --copy <existing remote tag>
 ```
 remote edit <tag>
     -h|--host <host>
-    -p|--port <port> 
+    -p|--port <port>
     ...
 ```
+- Set mapping, exclude files, dirs, additional config options for each tagged remote
 - Set active remote tag
 ```
 remote use <tag>
+```
+- Get info about the current configured remotes, or details on a specific tagged remote
+```
+remote info [ <tag> ]
 ```
 ### Deploy project
 - Deploy project to configured remote
@@ -53,6 +58,7 @@ remote deploy -P <profile> -r <remote-path>
 - Deploy files
 ```
 remote deploy -f <files...> -w <user@host:port/remote-path>
-remote deploy -f <files...> -P <profile> -r <remote-path>
-remote deploy -f <files...> -h <host> -p <port> -u <user> -i <key-file> -r <remote-path>
+remote deploy -f <files...> -P <profile> -o <remote-path>
+remote deploy -f <files...> -h <host> -p <port> -u <user> -i <key-file> -o <remote-path>
 ```
+- Deploy directories recursively using --recursive | -r

@@ -72,18 +72,30 @@ function checkPositionalArgs() {
     fi
 }
 
-# Conditional print (verbose) with optional script name tag
+# Conditional print (verbose)
 script_print() {
     if [[ $VERBOSE -eq 1 ]]; then
-        [[ -z "$1" ]] && printf '%s: ' "$SCRIPT_NAME"
         printf "${@}"
     fi
 }
 
+# Conditional print (verbose) with script name tag
+script_message() {
+    if [[ $VERBOSE -eq 1 ]]; then
+        printf '%s: ' "$SCRIPT_NAME"
+        printf "${@}"
+    fi
+}
+
+# Always print error
+script_error() {
+    printf '%s error: ' "$SCRIPT_NAME"
+    printf "${@}"
+}
+
 # Conditional print (debug)
 script_debug() {
-    if [[ $VERBOSE -eq 1 ]]; then
-        [[ -z "$1" ]] && printf '%s: ' "DEBUG"
+    if [[ $DEBUG -eq 1 ]]; then
         printf "${@}"
     fi
 }
