@@ -8,7 +8,7 @@
 
 # ====================================
 # Select extra libraries to use
-LIBS="remote"
+LIBS=""
 # ====================================
 
 
@@ -90,6 +90,12 @@ script_message() {
 # Always print error
 script_error() {
     printf '%s error: ' "$SCRIPT_NAME"
+    printf "${@}"
+}
+
+# Always print warning
+script_warning() {
+    printf '%s warning: ' "$SCRIPT_NAME"
     printf "${@}"
 }
 
