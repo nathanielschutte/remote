@@ -2,11 +2,14 @@
  Library of deploy and other remote functions
 
 ## Function
+### Project deploy
 - configure project: maintain remote info and file mapping
-- configure profiles: maintain remote info
-- deploy project: use project configuration
-- deploy list of files: specifiy remote info or use a profile
-- remote stop/start: execute start/stop scripts on remote
+- deploy project: using configured remotes or manual
+- remote script execute: maintain and execute start/stop (or other) scripts on remote
+### File deploy
+- deploy files: using profile or manual
+### Extra
+- configure profiles: maintain remote info to be used for project remote hosts or file deploys
 
 ## Usage
 ### Initialize
